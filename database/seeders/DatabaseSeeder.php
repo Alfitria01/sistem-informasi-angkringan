@@ -17,12 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProductSeeder::class,
             SalesTableSeeder::class,
-<<<<<<< HEAD
-            CustomersTableSeeder::class,
-            OrdersTableSeeder::class,
-=======
->>>>>>> bde3e209e51b67f4be84ac8811de3145ce88bef6
+            CustomersTableSeeder::class, // Pastikan ini ada jika diperlukan
+            OrdersTableSeeder::class,    // Pastikan ini ada jika diperlukan
         ]);
-        
     }
 }
