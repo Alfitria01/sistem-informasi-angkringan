@@ -23,7 +23,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Halaman utama atau welcome page
 Route::get('/', function () {
-    return view('welcome');
+    return view('home'); // Menampilkan homepage
 });
 
 // Otentikasi routes (login, logout, register)
@@ -52,7 +52,7 @@ Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Route untuk CRUD Produk
-Route::resource('products', ProductController::class); 
+Route::resource('products', ProductController::class); // CRUD untuk produk
 
 // Rute untuk menu
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.index'); // Halaman daftar kategori/menu

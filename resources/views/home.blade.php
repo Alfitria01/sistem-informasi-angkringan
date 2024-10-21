@@ -99,7 +99,6 @@
             }
         }
 
-
         .jumbotron h2 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -270,7 +269,7 @@
     <section id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Experience a fusion of traditional and modern flavors in a cozy atmosphere. Our talented chefs use only the freshest ingredients to create dishes that are both delicious and memorable.</p>
+            <p>We are dedicated to providing you with the best angkringan experience, combining traditional recipes with a modern touch.</p>
         </div>
     </section>
 
@@ -280,24 +279,20 @@
             <h2>Our Menu</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <h3>Jus Buah</h3>
-                    <p>Refreshing fruit juice made from seasonal fruits.</p>
+                    <h3>Nasi Kucing</h3>
+                    <p>Traditional rice served with various side dishes.</p>
                 </div>
                 <div class="menu-card">
-                    <h3>Teh Es/Panas</h3>
-                    <p>Traditional iced/hot tea with a hint of sweetness.</p>
-                </div>
-                <div class="menu-card">
-                    <h3>Kopi Es/Panas</h3>
-                    <p>Coffee served hot or iced, brewed to perfection.</p>
-                </div>
-                <div class="menu-card">
-                    <h3>Kacang Hijau</h3>
-                    <p>Delicious mung bean dessert served warm.</p>
+                    <h3>Sate</h3>
+                    <p>Grilled skewers with your choice of meat and spices.</p>
                 </div>
                 <div class="menu-card">
                     <h3>Gorengan</h3>
-                    <p>Crispy fried snacks, perfect for sharing.</p>
+                    <p>Fried snacks that are perfect for sharing.</p>
+                </div>
+                <div class="menu-card">
+                    <h3>Wedang</h3>
+                    <p>Traditional hot beverages to warm your soul.</p>
                 </div>
             </div>
         </div>
@@ -307,16 +302,19 @@
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Email: <a href="mailto:putrapandawa@gmail.com">putrapandawa@gmail.com</a></p>
-            <p>Phone: <a href="tel:+123456789">+1 (234) 567-89</a></p>
-            <p>Location: Ds. Tirtajaya</p>
-            <p>Opening Hours: 16.00 - 23.00</p>
+            <p>If you have any questions or want to place an order, feel free to reach out!</p>
+            <p>Email: <a href="mailto:info@angkringanputrapandawa.com">info@angkringanputrapandawa.com</a></p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Angkringan Putra Pandawa. All rights reserved.</p>
+        <p>&copy; 2024 Angkringan Putra Pandawa. All rights reserved.</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>

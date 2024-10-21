@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         // Fetch all products with pagination
-    $products = Product::paginate(5); // Adjust the number as needed
+        $products = Product::paginate(5); // Adjust the number as needed
         return view('products.index', compact('products'));
     }
 
@@ -40,20 +40,18 @@ class ProductController extends Controller
         $imageName = $image->hashName();
         $image->storeAs('products', $imageName, 'public');
 
-        $validatedData['image'] = $imageName;
-
         // Create a new product with validated data
         $product = Product::create([
-            'title' => $validatedData['title'],
-            'price' => $validatedData['price'],
-            'stock' => $validatedData['stock'],
-            'description' => $validatedData['description'],
-            'image' => $imageName,
+            'image'         => $imageName,
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'price'         => $request->price,
+            'stock'         => $request->stock
         ]);
 
         // Redirect to the products index page with a success message
-        return redirect()->route('products.show', $product->id)
-                        ->with('success', 'Product added successfully!');
+        return redirect()->route('products.index')
+                         ->with('success', 'Product added successfully!');
     }
 
     // Display the specified resource
@@ -87,7 +85,7 @@ class ProductController extends Controller
             // Store the image
             $image = $request->file('image');
             $imageName = $image->hashName();
-            $image->storeAs('products',$imageName, 'public');
+            $image->storeAs('products', $imageName, 'public');
             $validatedData['image'] = $imageName; // Update validated data with image name
         }
 
