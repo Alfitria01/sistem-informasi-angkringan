@@ -6,6 +6,54 @@
     <title>Your Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .card {
+            border-radius: 15px;
+        }
+
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid #dee2e6;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .table thead {
+            background-color: #343a40;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.3s;
+        }
+
+        .btn {
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .alert {
+            border-radius: 10px;
+        }
+
+        .img-fluid {
+            border-radius: 10px;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container my-5">
@@ -20,20 +68,20 @@
                 </div>
 
                 <!-- Cart Items -->
-                <div class="card shadow-sm">
+                <div class="card shadow-lg mb-4">
                     <div class="card-body p-4">
-                        <table class="table align-middle table-hover">
-                            <thead class="table-dark">
+                        <table class="table table-hover align-middle">
+                            <thead>
                                 <tr>
-                                    <th scope="col">Product Name</th>
-                                    <th scope="col" class="text-center">Quantity</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col" class="text-center">Qty</th>
                                     <th scope="col" class="text-center">Price</th>
                                     <th scope="col" class="text-center">Total</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Repeat for each cart item -->
+                                <!-- Example of a Cart Item -->
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -44,7 +92,9 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center">1</td>
+                                    <td class="text-center">
+                                        <span class="badge bg-secondary">1</span>
+                                    </td>
                                     <td class="text-center">Rp 100,000.00</td>
                                     <td class="text-center">Rp 100,000.00</td>
                                     <td class="text-center">
@@ -57,15 +107,13 @@
                                         </form>
                                     </td>
                                 </tr>
-                                <!-- End of item loop -->
+                                
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Total: 
-                            <strong>Rp 100,000.00</strong>
-                        </h5>
-                        <a href="#" class="btn btn-success">Proceed to Checkout</a>
+                    <div class="card-footer d-flex justify-content-between align-items-center p-3">
+                        <h5 class="mb-0">Total: <strong>Rp 100,000.00</strong></h5>
+                        <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>
                     </div>
                 </div>
 

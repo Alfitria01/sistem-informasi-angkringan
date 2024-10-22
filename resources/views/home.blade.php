@@ -7,6 +7,7 @@
     <title>Angkringan Putra Pandawa</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -248,14 +249,15 @@
 
                 <!-- Ikon Keranjang -->
                 <a href="{{ route('cart.index') }}" class="ms-3 position-relative">
-                    <i class="bi bi-cart" style="font-size: 1.5rem; color: white;"></i>
+                    <i class="bi bi-cart-fill" style="font-size: 1.5rem; color: white;"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        0 <!-- Dinamis, ganti dengan jumlah item di keranjang -->
+                         <!-- Dinamis, ganti dengan jumlah item di keranjang -->
                     </span>
                 </a>
             </nav>
         </div>
     </header>
+
 
     <!-- Jumbotron -->
     <section class="jumbotron">
