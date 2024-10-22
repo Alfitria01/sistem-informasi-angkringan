@@ -281,20 +281,24 @@
             <h2>Our Menu</h2>
             <div class="menu-grid">
                 <div class="menu-card">
-                    <h3>Nasi Kucing</h3>
-                    <p>Traditional rice served with various side dishes.</p>
+                    <h3>Jus</h3>
+                    <p>Refreshing fruit juice made from seasonal fruits.</p>
                 </div>
                 <div class="menu-card">
-                    <h3>Sate</h3>
-                    <p>Grilled skewers with your choice of meat and spices.</p>
+                    <h3>Teh Es/Panas</h3>
+                    <p>Traditional iced/hot tea with a hint of sweetness.</p>
+                </div>
+                <div class="menu-card">
+                    <h3>Kopi Es/Panas</h3>
+                    <p>Coffee served hot or iced, brewed to perfection.</p>
+                </div>
+                <div class="menu-card">
+                    <h3>Kacang Hijau</h3>
+                    <p>Sweet mung bean porridge with coconut milk.</p>
                 </div>
                 <div class="menu-card">
                     <h3>Gorengan</h3>
-                    <p>Fried snacks that are perfect for sharing.</p>
-                </div>
-                <div class="menu-card">
-                    <h3>Wedang</h3>
-                    <p>Traditional hot beverages to warm your soul.</p>
+                    <p>Crispy fried snacks, perfect for sharing.</p>
                 </div>
             </div>
         </div>
