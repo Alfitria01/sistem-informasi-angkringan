@@ -23,7 +23,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Halaman utama atau welcome page
 Route::get('/', function () {
-    return view('home'); // Menampilkan homepage
+    return view('welcome'); // Menampilkan welcomepage
 });
 
 // Otentikasi routes (login, logout, register)
