@@ -33,6 +33,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        Homepage
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('products.index') }}">
                         Data Produk
                     </a>
@@ -120,6 +125,7 @@
                             <td>{{ number_format($product->price, 2) }}</td>
                             <td>{{ $product->stock }}</td>
                             <td>
+                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-success btn-sm">Lihat</a>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
                                     @csrf

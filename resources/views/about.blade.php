@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>About Us - Angkringan Putra Pandawa</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
         <style>
             body {
                 font-family: 'Roboto', sans-serif;
@@ -78,6 +79,13 @@
                     <a href="{{ route('about')}}">About Us</a>
                     <a href="{{ route('menu.index') }}">Menu</a>
                     <a href="{{ route('contact')}}">Contact</a>
+                    <!-- Ikon Keranjang -->
+                    <a href="{{ route('cart.index') }}" class="ms-3 position-relative">
+                        <i class="bi bi-cart-fill" style="font-size: 1.5rem; color: white;"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <!-- Dinamis, ganti dengan jumlah item di keranjang -->
+                        </span>
+                    </a>
                 </nav>
             </div>
         </header>
