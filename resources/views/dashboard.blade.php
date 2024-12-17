@@ -43,6 +43,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('bahan_baku.index') }}">
+                        Manage Bahan Baku
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('sales.report') }}">
                         Sales Report
                     </a>

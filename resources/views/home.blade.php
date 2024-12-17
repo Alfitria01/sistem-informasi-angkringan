@@ -57,6 +57,21 @@
             transform: scale(1.05); /* Scale up on hover */
         }
 
+        .btn-login {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8D6E63;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #8D6E63;
+        }
+
         /* Jumbotron */
         .jumbotron {
             position: relative; /* Untuk anak elemen yang absolute */
@@ -246,6 +261,8 @@
                 <a href="{{ route('about')}}">About Us</a>
                 <a href="{{ route('menu.index') }}">Menu</a>
                 <a href="{{ route('contact')}}">Contact</a>
+                <a href="{{route('movies.index')}}">Movies</a>
+                <a href="{{ route('login')}}" class="btn btn-login">Login</a>
 
                 <!-- Ikon Keranjang -->
                 <a href="{{ route('cart.index') }}" class="ms-3 position-relative">
@@ -310,6 +327,9 @@
             <h2>Contact Us</h2>
             <p>If you have any questions or want to place an order, feel free to reach out!</p>
             <p>Email: <a href="mailto:info@angkringanputrapandawa.com">info@angkringanputrapandawa.com</a></p>
+            <p>Phone: +123 456 789</p>
+            <p>Location: Ds. Tirta Jaya</p>
+            <p>Opening Hours: 16:00 - 23:00</p>
         </div>
     </section>
 

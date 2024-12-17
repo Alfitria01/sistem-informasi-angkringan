@@ -30,7 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- SPK Navigation Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('spk.calculate') }}">SPK (Decision Support)</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,6 +76,22 @@
         </nav>
 
         <main class="py-4">
+            <!-- Flash Messages -->
+            @if (session('success'))
+                <div class="container">
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="container">
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                </div>
+            @endif
+
             @yield('content')
         </main>
     </div>

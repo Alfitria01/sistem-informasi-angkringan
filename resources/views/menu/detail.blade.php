@@ -104,7 +104,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $menu['title'] }}</h5>
                                 <p class="card-text">{{ $menu['description'] }}</p>
-                                <p class="card-text price"><strong>Rp {{ $menu['price'] }}</strong></p>
+                                <p class="card-text price"><strong>{{ $menu['price'] }}</strong></p>
                             </div>
                         </div>
                     </div>

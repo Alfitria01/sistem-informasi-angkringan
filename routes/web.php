@@ -14,6 +14,12 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\QrCodeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\BahanBakuController;
+use App\Http\Controllers\SPKController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\PostController;
 
 // Route untuk generate QR Code
 Route::match(['get', 'post'], '/qr-code', [QrCodeController::class, 'generate'])->name('qr-code');
@@ -22,7 +28,7 @@ Route::match(['get', 'post'], '/qr-code', [QrCodeController::class, 'generate'])
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Halaman utama atau welcome page
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome'); // Menampilkan welcomepage
 });
 
@@ -38,6 +44,16 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::middleware([RoleMiddleware::class . 'admin'])->group(function () {
+    Route::get('/edit-post/{post}',[PostController::class, 'showEditScreen']);
+    Route::put('edit-post/{post}',[PostController::class, 'actuallyUpdatePost']);
+
+});
+
+Route::middleware([RoleMiddleware::class . ':admin,user'])->group(function () {
+    Route::post('/create-post', [PostController::class,'createPost']);
+});
+
 // Cart routes
 Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -45,11 +61,11 @@ Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('ca
 
 // Transaction routes
 Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
-Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
 Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
 
-// Route untuk halaman Home setelah login
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route untuk halaman Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route untuk CRUD Produk
 Route::resource('products', ProductController::class); // CRUD untuk produk
@@ -65,3 +81,14 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 
 // Route for Sales Report
 Route::get('/sales-report', [SalesReportController::class, 'index'])->name('sales.report');
+
+Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+
+Route::resource('bahan_baku', BahanBakuController::class);
+
+Route::get('/spk/calculate', [SPKController::class, 'calculateSAW'])->name('spk.calculate');
+Route::get('/spk', [SPKController::class, 'index']);
+
+Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index'); // Displays the filter form
+Route::get('/pelanggan/filter', [PelangganController::class, 'filter'])->name('pelanggan.filter'); // Processes the filter
+

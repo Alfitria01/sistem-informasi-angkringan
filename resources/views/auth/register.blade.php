@@ -70,6 +70,12 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
                     <button type="submit" class="btn btn-primary w-100">Register</button>
                 </form>
 

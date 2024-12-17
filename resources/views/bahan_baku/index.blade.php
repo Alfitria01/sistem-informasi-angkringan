@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container my-4">
-        <h1 class="text-center mb-4">Daftar Produk</h1>
+        <h1 class="text-center mb-4">Daftar Bahan Baku</h1>
 
         <!-- Display success message -->
         @if (session('success'))
@@ -20,8 +20,8 @@
 
         <!-- Link to create new Bahan Baku -->
         <div class="d-flex justify-content mb-3">
-            <a href="{{ route('products.create') }}" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> Tambah Produk
+            <a href="{{ route('bahan_baku.create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Tambah Bahan Baku
             </a>
         </div>
 
@@ -30,38 +30,34 @@
             <table class="table table-striped table-bordered align-middle">
                 <thead class="table-dark">
                     <tr>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Description</th>
+                        <th>Nama</th>
+                        <th>Jumlah</th>
+                        <th>Satuan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($bahan_bakus as $bahan_baku)
                         <tr>
-                            <td>{{ $product->Image }}</td>
-                            <td>{{ $product->Title }}</td>
-                            <td>{{ $product->Price }}</td>
-                            <td>{{ $product->Stock }}</td>
-                            <td>{{ $product->Description }}</td>
+                            <td>{{ $bahan_baku->nama }}</td>
+                            <td>{{ $bahan_baku->jumlah }}</td>
+                            <td>{{ $bahan_baku->satuan }}</td>
                             <td>
                                 <!-- Link to show details of the Bahan Baku -->
-                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm text-white">
+                                <a href="{{ route('bahan_baku.show', $bahan_baku->id) }}" class="btn btn-info btn-sm text-white">
                                     <i class="bi bi-eye"></i> Detail
                                 </a>
                                 
                                 <!-- Link to edit the Bahan Baku -->
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm text-white">
+                                <a href="{{ route('bahan_baku.edit', $bahan_baku->id) }}" class="btn btn-warning btn-sm text-white">
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </a>
                                 
                                 <!-- Form to delete the Bahan Baku -->
-                                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('bahan_baku.destroy', $bahan_baku->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus produk ini?')">
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus bahan baku ini?')">
                                         <i class="bi bi-trash"></i> Hapus
                                     </button>
                                 </form>
