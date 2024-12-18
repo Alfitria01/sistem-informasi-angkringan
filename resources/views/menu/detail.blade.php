@@ -1,4 +1,3 @@
-{{-- resources/views/menu/detail.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,15 +54,14 @@
             background-color: #8D6E63; /* Lighter brown */
             transform: scale(1.05); /* Scale up on hover */
         }
-        
-            /* Footer */
+
         footer {
             background-color: #3e2723; /* Dark brown */
             padding: 5px 0;
             text-align: center;
             color: white;
         }
-        
+
         footer p {
             color: #f5f5f5; /* Light color for contrast */
             font-size: 1rem;
@@ -76,19 +74,18 @@
 <header>
     <div class="container d-flex justify-content-between align-items-center">
         <h1>Angkringan Putra Pandawa</h1>
-            <nav>
-                <a href="{{ route('home')}}">Home</a>
-                <a href="{{ route('about')}}">About Us</a>
-                <a href="{{ route('menu.index') }}">Menu</a>
-                <a href="{{ route('contact')}}">Contact</a>
-                <!-- Ikon Keranjang -->
-                <a href="{{ route('cart.index') }}" class="ms-3 position-relative">
-                    <i class="bi bi-cart-fill" style="font-size: 1.5rem; color: white;"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                         <!-- Dinamis, ganti dengan jumlah item di keranjang -->
-                    </span>
-                </a>
-            </nav>
+        <nav>
+            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('about') }}">About Us</a>
+            <a href="{{ route('menu.index') }}">Menu</a>
+            <a href="{{ route('contact') }}">Contact</a>
+            <a href="{{ route('cart.index') }}" class="ms-3 position-relative">
+                <i class="bi bi-cart-fill" style="font-size: 1.5rem; color: white;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{ session('cart') ? array_sum(array_column(session('cart'), 'quantity')) : 0 }}
+                </span>
+            </a>
+        </nav>
     </div>
 </header>
 
@@ -105,6 +102,18 @@
                                 <h5 class="card-title">{{ $menu['title'] }}</h5>
                                 <p class="card-text">{{ $menu['description'] }}</p>
                                 <p class="card-text price"><strong>{{ $menu['price'] }}</strong></p>
+                                
+                                <!-- Form untuk Add to Cart -->
+                                <form action="{{ route('cart.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="menu_id" value="{{ $menu['id'] }}">
+                                    <input type="hidden" name="menu_title" value="{{ $menu['title'] }}">
+                                    <input type="hidden" name="menu_price" value="{{ $menu['price'] }}">
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="quantity" class="form-control" min="1" value="1" required>
+                                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

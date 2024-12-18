@@ -11,6 +11,7 @@ use App\Http\Controllers\SalesReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\QrCodeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -55,14 +56,20 @@ Route::middleware([RoleMiddleware::class . ':admin,user'])->group(function () {
 });
 
 // Cart routes
-Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::prefix('cart')->group(function() {
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::post('add', [CartController::class, 'add'])->name('cart.add');
+    Route::put('update/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+});
 
 // Transaction routes
 Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
 Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 // Route untuk halaman Home
 Route::get('/', [HomeController::class, 'index'])->name('home');

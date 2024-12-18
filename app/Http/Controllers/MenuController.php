@@ -18,19 +18,19 @@ class MenuController extends Controller
         // Data menu berdasarkan kategori
         $menus = [
             'jus' => [
-                ['title' => 'Jus Buah', 'description' => 'Refreshing fruit juice made from seasonal fruits.', 'price' => 'Rp 15.000'],
+                ['id' => 1,'title' => 'Jus Buah', 'description' => 'Refreshing fruit juice made from seasonal fruits.', 'price' => 'Rp 15.000'],
             ],
             'teh' => [
-                ['title' => 'Teh Es/Panas', 'description' => 'Traditional iced/hot tea with a hint of sweetness.', 'price' => 'Rp 5.000'],
+                ['id' => 2,'title' => 'Teh Es/Panas', 'description' => 'Traditional iced/hot tea with a hint of sweetness.', 'price' => 'Rp 5.000'],
             ],
             'kopi' => [
-                ['title' => 'Kopi Es/Panas', 'description' => 'Coffee served hot or iced, brewed to perfection.', 'price' => 'Rp 10.000'],
+                ['id' => 3,'title' => 'Kopi Es/Panas', 'description' => 'Coffee served hot or iced, brewed to perfection.', 'price' => 'Rp 10.000'],
             ],
             'kacang_hijau' => [
-                ['title' => 'Kacang Hijau', 'description' => 'Sweet mung bean porridge with coconut milk.', 'price' => 'Rp 8.000'],
+                ['id' => 4,'title' => 'Kacang Hijau', 'description' => 'Sweet mung bean porridge with coconut milk.', 'price' => 'Rp 8.000'],
             ],
             'gorengan' => [
-                ['title' => 'Gorengan', 'description' => 'Crispy fried snacks, perfect for sharing.', 'price' => 'Rp 2.000'],
+                ['id' => 5,'title' => 'Gorengan', 'description' => 'Crispy fried snacks, perfect for sharing.', 'price' => 'Rp 2.000'],
             ],
         ];
 
