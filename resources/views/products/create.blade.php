@@ -14,7 +14,7 @@
         <!-- Form Tambah Bahan Baku -->
         <div class="card shadow">
             <div class="card-body">
-                <form action="{{ route('products.store') }}" method="POST">
+            <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Image -->
                     <div class="mb-3">
