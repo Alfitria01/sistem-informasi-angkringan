@@ -12,16 +12,19 @@ class SPKController extends Controller
     {
         // Get the max values for each criterion (C1, C2, C3)
         $criteriaMax = [
-            'c1' => $pelanggan->max('jumlah_harga'),
             'c2' => $pelanggan->max('jumlah_pesanan'),
             'c3' => $pelanggan->max('frekuensi_kunjungan')
+        ];
+
+        $criteriaMin = [
+            'c1' => $pelanggan->min('jumlah_harga')
         ];
 
         $normalizedData = [];
         foreach ($pelanggan as $p) {
             $normalizedData[] = [
                 'nama' => $p->nama, // Correctly access model attributes using $p->nama
-                'normalisasi_c1' => $p->jumlah_harga / $criteriaMax['c1'],
+                'normalisasi_c1' => $criteriaMin['c1'] / $p->jumlah_harga,
                 'normalisasi_c2' => $p->jumlah_pesanan / $criteriaMax['c2'],
                 'normalisasi_c3' => $p->frekuensi_kunjungan / $criteriaMax['c3'],
             ];
@@ -44,9 +47,12 @@ class SPKController extends Controller
         foreach ($normalizedData as $data) {
             $scores[] = [
                 'nama' => $data['nama'], // Make sure you pass the name through as well
-                'skor_akhir' => ($data['normalisasi_c1'] * $weights['c1']) +
-                               ($data['normalisasi_c2'] * $weights['c2']) +
-                               ($data['normalisasi_c3'] * $weights['c3']),
+                'skor_akhir' => round(
+                    ($data['normalisasi_c1'] * $weights['c1']) +
+                    ($data['normalisasi_c2'] * $weights['c2']) +
+                    ($data['normalisasi_c3'] * $weights['c3']),
+                    4
+                ),
             ];
         }
 
